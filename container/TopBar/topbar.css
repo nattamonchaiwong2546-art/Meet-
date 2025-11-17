@@ -1,0 +1,13 @@
+.topbar-container {
+  width: 100%;                     
+  background-color: #5a4ee3;       
+}
+
+.topbar-container-inner {
+  max-width: 1280px;                
+  margin: 0 auto;                   
+  display: flex;
+  justify-content: space-between;   
+  align-items: center;
+  padding: 2rem;                   
+}
