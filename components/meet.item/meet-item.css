@@ -1,0 +1,7 @@
+.meet-item-card {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.meet-item-card:hover {
+  box-shadow: var(--mantine-shadow-md);
+}

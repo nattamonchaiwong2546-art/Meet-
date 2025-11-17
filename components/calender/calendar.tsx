@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import type { CalendarBaseProps } from "./type";
 
-export default function CalendarComponent({ events, onDateClick }: CalendarBaseProps) {
+export default function CalendarComponent({ events, onDateClick, onEventClick }: CalendarBaseProps) {
   return (
   <div className="calendar-wrapper w-full">
   <FullCalendar
@@ -13,6 +13,7 @@ export default function CalendarComponent({ events, onDateClick }: CalendarBaseP
     initialView="dayGridMonth"
     events={events}
     dateClick={onDateClick}
+    eventClick={onEventClick} 
     height="100%" 
   />
 </div>
