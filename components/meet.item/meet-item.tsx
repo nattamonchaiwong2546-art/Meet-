@@ -33,7 +33,7 @@ export default function MeetItem({ event, onEdit, onDelete }: MeetItemProps) {
             icon={<MeetingRoomIcon />}
             label={`ห้อง ${event.room}`}
             color={roomColors[event.room]}
-            size="small"
+            size="medium"
           />
         </Box>
 

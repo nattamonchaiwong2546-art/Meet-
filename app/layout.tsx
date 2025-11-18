@@ -1,8 +1,9 @@
 "use client";
-import { ReactNode } from "react";
+
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ReactNode } from "react";
 
 const theme = createTheme({
   palette: {

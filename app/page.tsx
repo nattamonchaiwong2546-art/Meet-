@@ -1,4 +1,5 @@
-import "server-only";
+"server-only";
+
 import HomeScreen from "@/screen/HomeScreen";
 
 
