@@ -1,7 +1,10 @@
 "use client";
 
 import { Modal, Box, TextField, Button, FormControl, InputLabel, Select, MenuItem, Stack } from "@mui/material";
+import dayjs from "dayjs";
 import type { CalendarEvent } from "@/components/calender/type";
+import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 interface MeetFormProps {
   opened: boolean;
@@ -15,6 +18,7 @@ export default function MeetForm({ opened, onClose, onSubmit, eventData, onDataC
   const roomOptions = ["Room A", "Room B", "Room C"];
 
   return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
     <Modal open={opened} onClose={onClose}>
       <Box sx={{ width: 400, p: 3, bgcolor: 'background.paper', mx: 'auto', mt: '10%' }}>
         <TextField
@@ -24,34 +28,24 @@ export default function MeetForm({ opened, onClose, onSubmit, eventData, onDataC
           value={eventData?.title || ""}
           onChange={e => onDataChange("title", e.target.value)}
         />
-        <TextField
-          label="วันที่"
-          type="date"
-          fullWidth
-          sx={{ mb: 2 }}
-          value={eventData?.date || ""}
-          onChange={e => onDataChange("date", e.target.value)}
-         
+       <DatePicker
+        label="วันที่"
+        value={eventData?.date ? dayjs(eventData.date) : null}
+        onChange={(value) => onDataChange("date", value?.format("YYYY-MM-DD") || "")}
+        sx={{ width: '100%', mb: 2 }}
         />
-        <TextField
-          label="เวลาเริ่ม"
-          type="time"
-          fullWidth
-          sx={{ mb: 2 }}
-          value={eventData?.startTime || "09:00"}
-          onChange={e => onDataChange("startTime", e.target.value)}
-          
+       <TimePicker
+        label="เวลาเริ่ม"
+        value={eventData?.startTime ? dayjs(eventData.startTime, "HH:mm") : null}
+        onChange={(value) =>onDataChange("startTime", value?.format("HH:mm") || "")}
+        sx={{ width: '100%', mb: 2 }}
         />
-        <TextField
-          label="เวลาสิ้นสุด"
-          type="time"
-          fullWidth
-          sx={{ mb: 2 }}
-          value={eventData?.endTime || "10:00"}
-          onChange={e => onDataChange("endTime", e.target.value)}
-      
-        />
-
+        <TimePicker
+        label="เวลาสิ้นสุด"
+        value={eventData?.endTime ? dayjs(eventData.endTime, "HH:mm") : null}
+        onChange={(value) =>onDataChange("endTime", value?.format("HH:mm") || "")}
+        sx={{ width: '100%', mb: 2 }}
+/>
         <FormControl fullWidth sx={{ mb: 2 }}>
           <InputLabel>ห้องประชุม</InputLabel>
           <Select
@@ -77,5 +71,6 @@ export default function MeetForm({ opened, onClose, onSubmit, eventData, onDataC
         </Stack>
       </Box>
     </Modal>
+   </LocalizationProvider>
   );
 }
