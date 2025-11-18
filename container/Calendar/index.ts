@@ -1,2 +1,2 @@
 export { default } from "./calendar-container";
-export * from "./type";
+export type { CalendarBaseProps } from "./type";

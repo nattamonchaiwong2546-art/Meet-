@@ -2,6 +2,9 @@ export interface CalendarEvent {
   id: string; 
   title: string;
   date: string;
+  startTime: string;
+  endTime: string;
+  room: 'Room A' | 'Room B' | 'Room C';
 }
 
 export interface CalendarBaseProps {

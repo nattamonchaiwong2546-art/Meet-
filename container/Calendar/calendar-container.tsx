@@ -1,18 +1,19 @@
 "use client";
 
-import CalendarComponent from "@/components/calender";
-import type { CalendarContainerProps } from "./type";
-import "./calendar-container.css";
+import {Paper, Box} from "@mui/material";
+import Calendarcomponent from "@/components/calender/calendar";
+import type { CalendarBaseProps } from "./type";
 
-export default function CalendarContainer({
-  events = [],        
-  onDateClick,
-}: CalendarContainerProps) {
+export default function CalendarbaseProps   ({ events, onDateClick, onEventClick }: CalendarBaseProps) {
   return (
-    <div className="calendar-container">
-      <div className="calendar-wrapper">
-        <CalendarComponent events={events} onDateClick={onDateClick} />
-      </div>
-    </div>
+    <Paper elevation={3} sx={{width: "100%", height: "100%", p:2, borderRadius: 2}}>
+      <Box sx={{width: "100%", height: "100%"}}>
+        <Calendarcomponent 
+        events={events}
+        onDateClick={onDateClick}
+        onEventClick={onEventClick}
+        />
+      </Box>
+    </Paper>
   );
 }
