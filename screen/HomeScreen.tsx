@@ -23,9 +23,9 @@ export default function HomeScreen() {
     setCurrentEvent({ 
       date: selectedDate, 
       title: "",
-      startTime: "09:00",
-      endTime: "10:00",
-      room: "Room A"
+      startTime: "08:00",
+      endTime: "09:00",
+      room: "Room A",
     });
     setOpened(true);
   };

@@ -1,18 +1,10 @@
 "use client";
 
-import { Modal, Box, TextField, Button, FormControl, InputLabel, Select, MenuItem, Stack } from "@mui/material";
-import dayjs from "dayjs";
-import type { CalendarEvent } from "@/components/calender/type";
-import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
-interface MeetFormProps {
-  opened: boolean;
-  onClose: () => void;
-  onSubmit: () => void;
-  eventData: Partial<CalendarEvent> | null;
-  onDataChange: (field: keyof CalendarEvent, value: string) => void;
-}
+import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
+import { Modal, Box, TextField, Button, FormControl, InputLabel, Select, MenuItem, Stack } from "@mui/material";
+import type { MeetFormProps } from "./type";
 
 export default function MeetForm({ opened, onClose, onSubmit, eventData, onDataChange }: MeetFormProps) {
   const roomOptions = ["Room A", "Room B", "Room C"];
